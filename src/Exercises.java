@@ -6,13 +6,17 @@ public class Exercises {
 		if (a == null || a.isEmpty() || b == null || b.isEmpty()) {
 			return false;
 		}
-		
+
 		// write your code here
+		if (a.get(0) == b.get(0) || a.get(a.size() - 1) == b.get(b.size() - 1)) {
+			return true;
+		}
 
 		return false;	// default return value to ensure compilation
 	}
 
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
+
 		// write your code here
 
 		return null;	// default return value to ensure compilation
