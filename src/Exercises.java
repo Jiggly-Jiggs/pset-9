@@ -64,7 +64,7 @@ public class Exercises {
 
 				int differnce = max - min;
 
-				return differnce;
+		return differnce;
 	}
 
 	public double biggest(ArrayList<Double> numbers) {
@@ -109,7 +109,7 @@ public class Exercises {
 				middles.add(values.get(middle));
 				middles.add(values.get(middle + 1));
 
-				return middles;
+		return middles;
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
@@ -166,13 +166,41 @@ public class Exercises {
 			return false;
 		}
 
-		return false;	// default return value to ensure compilation
+		for (int i = 1; i < numbers.size() - 1; i++) {
+			if (numbers.get(i - 1) % 2 == 0 && numbers.get(i) % 2 == 0 && numbers.get(i + 1) % 2 == 0) {
+				return true;
+			} else if (numbers.get(i - 1) % 2 == 1 && numbers.get(i) % 2 == 1 && numbers.get(i + 1) % 2 == 1) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public boolean balance(ArrayList<Integer> numbers) {
-		// write your code here
 
-		return false;	// default return value to ensure compilation
+		// write your code here
+		if (numbers == null || numbers.size() < 2) {
+				return false;
+			}
+
+			for (int i = 0; i < numbers.size() - 1; i++) {
+				int sum1 = 0;
+				int sum2 = 0;
+
+				for (int j = i; j >= 0; j--) {
+					sum1 += numbers.get(j);
+				}
+
+				for (int b = i + 1; b < numbers.size(); b++) {
+					sum2 += numbers.get(b);
+				}
+
+				if (sum1 == sum2) {
+					return true;
+				}
+			}
+		return false;
 	}
 
 	public int clumps(ArrayList<String> values) {
