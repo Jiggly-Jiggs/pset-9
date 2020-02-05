@@ -12,7 +12,7 @@ public class Exercises {
 			return true;
 		}
 
-		return false;	// default return value to ensure compilation
+		return false;
 
 	}
 
@@ -38,37 +38,133 @@ public class Exercises {
 	}
 
 	public int difference(ArrayList<Integer> numbers) {
-		// write your code here
 
-		return -1;		// default return value to ensure compilation
+		// write your code here
+		if (numbers == null || numbers.size() < 1) {
+					return -1;
+				}
+
+				int min = 0;
+				int max = 0;
+
+				for (int i = 0; i < numbers.size(); i++) {
+					if (i == 0) {
+						min = numbers.get(i);
+						max = numbers.get(i);
+					}
+
+					if (max < numbers.get(i)) {
+						max = numbers.get(i);
+					}
+
+					if (min > numbers.get(i)) {
+						min = numbers.get(i);
+					}
+				}
+
+				int differnce = max - min;
+
+				return differnce;
 	}
 
 	public double biggest(ArrayList<Double> numbers) {
-		// write your code here
 
-		return -1;		// default return value to ensure compilation
+		// write your code here
+		if (numbers == null || numbers.size() < 3 || numbers.size() % 2 == 0) {
+			return -1;
+		}
+
+		int middle = (int)(Math.ceil(numbers.size() / 2));
+		double max = -1;
+
+		for (int i = 0; i < numbers.size(); i++) {
+			if (numbers.get(i) < 0) {
+					return -1;
+				}
+
+				if ((i == 0 || i == numbers.size() - 1 || i == middle) && numbers.get(i) > max) {
+					max = numbers.get(i);
+				}
+			}
+
+		return max;
 	}
 
 	public ArrayList<String> middle(ArrayList<String> values) {
-		// write your code here
 
-		return null;	// default return value to ensure compilation
+		// write your code here
+		if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+					return new ArrayList<String>();
+				}
+
+				for (int i = 0; i < values.size(); i++) {
+					if (values.get(i) == null) {
+						return new ArrayList<String>();
+					}
+				}
+
+				int middle = (int)(Math.ceil(values.size() / 2));
+				ArrayList<String> middles = new ArrayList<String>();
+				middles.add(values.get(middle - 1));
+				middles.add(values.get(middle));
+				middles.add(values.get(middle + 1));
+
+				return middles;
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
-		// write your code here
 
-		return false;	// default return value to ensure compilation
+		// write your code here
+		if (numbers == null || numbers.size() < 3) {
+			return false;
+		}
+
+		for (int i = 1; i < numbers.size()-1; i++) {
+			if (numbers.get(i-1) < numbers.get(i) && numbers.get(i) < numbers.get(i+1)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public boolean everywhere(ArrayList<Integer> numbers, int x) {
-		// write your code here
 
-		return false;	// default return value to ensure compilation
+		// write your code here
+		if (numbers == null || numbers.size() < 1) {
+			return false;
+		}
+
+		boolean lastPlace = false;
+		int gap = 0;
+
+		for (int i = 0; i < numbers.size(); i++) {
+			if (numbers.get(i) == x) {
+				lastPlace = true;
+				gap = 0;
+			} else {
+				if (i == 1 && lastPlace == false) {
+					return false;
+				} else if (lastPlace == false) {
+					gap++;
+				}
+				lastPlace = false;
+			}
+
+			if (gap == 2) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
+
 		// write your code here
+    if (numbers == null || numbers.size() < 3) {
+			return false;
+		}
 
 		return false;	// default return value to ensure compilation
 	}
