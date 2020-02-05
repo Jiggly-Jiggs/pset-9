@@ -6,7 +6,7 @@ public class Exercises {
 		if (a == null || a.isEmpty() || b == null || b.isEmpty()) {
 			return false;
 		}
-		//
+		
 		// write your code here
 
 		return false;	// default return value to ensure compilation
